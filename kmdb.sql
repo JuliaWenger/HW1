@@ -205,6 +205,8 @@ SELECT
 
 FROM Movies
 
-inner JOIN screenactors on movie_id = screenactors.movie_id 
+inner JOIN screenactors on movie_id = screenactors.movie_id
 
-ORDER By title; 
+ORDER BY title; 
+
+-- Couldn't figure out how to add a "GROUP BY" command that would return distinct results from the screenactor table - Julia 
