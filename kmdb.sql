@@ -133,12 +133,13 @@
 DROP TABLE IF EXISTS movies; 
 DROP TABLE IF EXISTS studios; 
 DROP TABLE IF EXISTS screenactors; 
+DROP TABLE IF EXISTS characters; 
 
 
 CREATE TABLE movies (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 title TEXT, 
-year released TEXT, 
+year_released TEXT, 
 rating TEXT, 
 studio_id INTEGER,
 screenactor_id INTEGER
@@ -162,3 +163,16 @@ CREATE table characters (
     screenactors_id INTEGER, 
     movie_id INTEGER
 );
+
+INSERT into movies (
+    title, 
+    year_released, 
+    rating, 
+    studio_id
+)
+VALUES 
+("Batman Begins", "2005", "PG_13", "Warner Bros"), 
+("The Dark Knight", "2008", "PG-13", "Warner Bros"),
+("The Dark Knight Rises", "2012", "PG-13", "Warner Bros");
+
+SELECT * FROM movies
