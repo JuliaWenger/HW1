@@ -125,13 +125,12 @@ screenactor_id INTEGER
 CREATE table studios (
    id INTEGER PRIMARY KEY AUTOINCREMENT, 
    name TEXT
-    
-);
+   );
 
 CREATE table screenactors (
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
     name TEXT, 
-    character_name TEXT,
+    character TEXT,
     movie_id INTEGER,
     ); 
 
@@ -152,13 +151,14 @@ VALUES
 ("The Dark Knight Rises", "2012", "PG-13", "Warner Bros");
 
 INSERT into studios (
-    name ) 
+   name ) 
+
 VALUES 
 ("Warner Bros"); 
 
 INSERT into screenactors (
     name, 
-    movie, 
+    movie_id, 
     character 
 )
 VALUES 
