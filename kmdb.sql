@@ -108,7 +108,6 @@
 DROP TABLE IF EXISTS movies; 
 DROP TABLE IF EXISTS studios; 
 DROP TABLE IF EXISTS screenactors; 
-DROP TABLE IF EXISTS characters; 
 
 -- Create new tables, according to your domain model
 -- TODO!
@@ -131,7 +130,7 @@ CREATE table screenactors (
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
     name TEXT, 
     character TEXT,
-    movie_id INTEGER,
+    movie_id INTEGER
     ); 
 
 -- Insert data into your database that reflects the sample data shown above
@@ -139,7 +138,7 @@ CREATE table screenactors (
 -- TODO!
 
 
-INSERT into Movies (
+INSERT into movies (
     title, 
     year_released, 
     rating, 
@@ -151,7 +150,7 @@ VALUES
 ("The Dark Knight Rises", "2012", "PG-13", "Warner Bros");
 
 INSERT into studios (
-   name ) 
+   name) 
 
 VALUES 
 ("Warner Bros"); 
@@ -200,8 +199,15 @@ JOIN studios ON movies.studio_id = studios.id;
 -- The SQL statement for the cast output
 -- TODO!
 
+SELECT
+    movies.title, 
+    screenactors.name, 
+    screenactors.character
 
- 
+FROM Movies
+
+JOIN screenactors on movie_id = screenactors.movie_id; 
+
 
 
 
