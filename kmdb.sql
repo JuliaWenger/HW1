@@ -112,7 +112,7 @@ DROP TABLE IF EXISTS screenactors;
 -- Create new tables, according to your domain model
 -- TODO!
 
-CREATE TABLE Movies (
+CREATE TABLE movies (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 title TEXT, 
 year_released TEXT, 
@@ -141,7 +141,7 @@ INSERT into movies (
     title, 
     year_released, 
     rating, 
-    studio_name
+    studio_id
 )
 VALUES 
 ("Batman Begins", "2005", "PG_13", "Warner Bros"), 
@@ -184,14 +184,10 @@ VALUES
 -- The SQL statement for the movies output
 -- TODO!
 
-SELECT
-   movie.title,
-   movie.year_released, 
-   movie.rating,
-   movie.studio_id
-FROM movies
-INNER JOIN studios ON studios.id = movies.studio_id;
-
+SELECT * 
+   
+FROM movies;
+-- I couldn't figure out how to get the "Movies" section to display via an Inner Join so left it as Select - Julia 
 
 -- Prints a header for the cast output
 .print ""
