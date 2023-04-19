@@ -136,7 +136,7 @@ DROP TABLE IF EXISTS screenactors;
 DROP TABLE IF EXISTS characters; 
 
 
-CREATE TABLE movies (
+CREATE TABLE Movies (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 title TEXT, 
 year_released TEXT, 
@@ -154,7 +154,8 @@ CREATE table studios (
 CREATE table screenactors (
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
     first_name TEXT, 
-    last_name TEXT, 
+    last_name TEXT,
+    movie TEXT,
     character TEXT
 ); 
 
@@ -164,7 +165,7 @@ CREATE table characters (
     movie_id INTEGER
 );
 
-INSERT into movies (
+INSERT into Movies (
     title, 
     year_released, 
     rating, 
@@ -175,4 +176,31 @@ VALUES
 ("The Dark Knight", "2008", "PG-13", "Warner Bros"),
 ("The Dark Knight Rises", "2012", "PG-13", "Warner Bros");
 
-SELECT * FROM movies
+
+INSERT into screenactors (
+    first_name, 
+    last_name, 
+    movie, 
+    character 
+)
+VALUES 
+("Christian", "Bale", "Batman Begins", "Bruce Wayne"), 
+("Michael", "Caine", "Batman Begins", "Alfred" ), 
+("Liam", "Neeson", "Batman Begins", "Ra's Al Ghul"), 
+("Gary", "Oldman", "Batman Begins", "Comissioner Gordon"), 
+( "Katie", "Holmes", "Batman Begins", "Rachel Dawes"),
+("Christian", "Bale", "The Dark Knight", "Bruce Wayne"), 
+("Christian", "Bale", "The Dark Knight Rises", "Bruce Wayne"), 
+("Heath", "Ledger", "The Dark Knight", "Joker"), 
+( "Aaron", "Eckhart", "The Dark Knight", "Harvey Dent"), 
+("Michael", "Caine", "The Dark Knight", "Alfred" ), 
+("Maggie", "Gyllenhaal", "The Dark Knight", "Rachel Dawes"), 
+("Gary", "Oldman", "The Dark Knight Rises", "Comissioner Gordon"), 
+("Tom", "Hardy", "The Dark Knight Rises" , "Bane"), 
+("Joseph" , "Gordon-Levitt", "The Dark Knight Rises", "John Blake"), 
+("Anne", "Hathaway", "The Dark Knight Rises", "Selina Kyle"); 
+
+Select * FROM screenactors
+    WHERE movie = "Batman Begins"; 
+    
+
