@@ -105,36 +105,13 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
-
--- Create new tables, according to your domain model
--- TODO!
-
--- Insert data into your database that reflects the sample data shown above
--- Use hard-coded foreign key IDs when necessary
--- TODO!
-
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
-
--- The SQL statement for the movies output
--- TODO!
-
--- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
-
-
--- The SQL statement for the cast output
--- TODO!
 DROP TABLE IF EXISTS movies; 
 DROP TABLE IF EXISTS studios; 
 DROP TABLE IF EXISTS screenactors; 
 DROP TABLE IF EXISTS characters; 
 
+-- Create new tables, according to your domain model
+-- TODO!
 
 CREATE TABLE Movies (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -153,17 +130,15 @@ CREATE table studios (
 
 CREATE table screenactors (
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
-    first_name TEXT, 
-    last_name TEXT,
-    movie TEXT,
-    character TEXT
-); 
+    name TEXT, 
+    character_name TEXT,
+    movie_id INTEGER,
+    ); 
 
-CREATE table characters (
-    id INTEGER PRIMARY KEY AUTOINCREMENT, 
-    screenactors_id INTEGER, 
-    movie_id INTEGER
-);
+-- Insert data into your database that reflects the sample data shown above
+-- Use hard-coded foreign key IDs when necessary
+-- TODO!
+
 
 INSERT into Movies (
     title, 
@@ -176,31 +151,57 @@ VALUES
 ("The Dark Knight", "2008", "PG-13", "Warner Bros"),
 ("The Dark Knight Rises", "2012", "PG-13", "Warner Bros");
 
+INSERT into studios (
+    name ) 
+VALUES 
+("Warner Bros"); 
 
 INSERT into screenactors (
-    first_name, 
-    last_name, 
+    name, 
     movie, 
     character 
 )
 VALUES 
-("Christian", "Bale", "Batman Begins", "Bruce Wayne"), 
-("Michael", "Caine", "Batman Begins", "Alfred" ), 
-("Liam", "Neeson", "Batman Begins", "Ra's Al Ghul"), 
-("Gary", "Oldman", "Batman Begins", "Comissioner Gordon"), 
-( "Katie", "Holmes", "Batman Begins", "Rachel Dawes"),
-("Christian", "Bale", "The Dark Knight", "Bruce Wayne"), 
-("Christian", "Bale", "The Dark Knight Rises", "Bruce Wayne"), 
-("Heath", "Ledger", "The Dark Knight", "Joker"), 
-( "Aaron", "Eckhart", "The Dark Knight", "Harvey Dent"), 
-("Michael", "Caine", "The Dark Knight", "Alfred" ), 
-("Maggie", "Gyllenhaal", "The Dark Knight", "Rachel Dawes"), 
-("Gary", "Oldman", "The Dark Knight Rises", "Comissioner Gordon"), 
-("Tom", "Hardy", "The Dark Knight Rises" , "Bane"), 
-("Joseph" , "Gordon-Levitt", "The Dark Knight Rises", "John Blake"), 
-("Anne", "Hathaway", "The Dark Knight Rises", "Selina Kyle"); 
+("Christian Bale", "Batman Begins", "Bruce Wayne"), 
+("Michael Caine", "Batman Begins", "Alfred" ), 
+("Liam Neeson", "Batman Begins", "Ra's Al Ghul"), 
+("Gary Oldman", "Batman Begins", "Comissioner Gordon"), 
+( "Katie Holmes", "Batman Begins", "Rachel Dawes"),
+("Christian Bale", "The Dark Knight", "Bruce Wayne"), 
+("Christian Bale", "The Dark Knight Rises", "Bruce Wayne"), 
+("Heath Ledger", "The Dark Knight", "Joker"), 
+("Aaron Eckhart", "The Dark Knight", "Harvey Dent"), 
+("Michael Caine", "The Dark Knight", "Alfred" ), 
+("Maggie Gyllenhaal", "The Dark Knight", "Rachel Dawes"), 
+("Gary Oldman", "The Dark Knight Rises", "Comissioner Gordon"), 
+("Tom Hardy", "The Dark Knight Rises" , "Bane"), 
+("Joseph Gordon-Levitt", "The Dark Knight Rises", "John Blake"), 
+("Anne Hathaway", "The Dark Knight Rises", "Selina Kyle"); 
 
-Select * FROM screenactors
-    WHERE movie = "Batman Begins"; 
-    
+-- Prints a header for the movies output
+.print "Movies"
+.print "======"
+.print ""
+
+-- The SQL statement for the movies output
+-- TODO!
+
+SELECT movies.title, movies.year_released, movies.rating, studios.name
+    FROM Movies
+JOIN studios ON movies.studio_id = studios.id;
+
+-- Prints a header for the cast output
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
+
+
+-- The SQL statement for the cast output
+-- TODO!
+
+
+ 
+
+
 
