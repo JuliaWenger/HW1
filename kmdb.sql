@@ -137,7 +137,6 @@ CREATE table screenactors (
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
-
 INSERT into movies (
     title, 
     year_released, 
@@ -185,9 +184,12 @@ VALUES
 -- The SQL statement for the movies output
 -- TODO!
 
-SELECT movies.title, movies.year_released, movies.rating, studios.name
-    FROM Movies
-JOIN studios ON movies.studio_id = studios.id;
+SELECT movies.title,
+    movies.year_released, 
+    movies.rating, 
+    studios.name
+FROM Movies
+JOIN studios ON studios_id = movies.studios_id;
 
 -- Prints a header for the cast output
 .print ""
@@ -206,8 +208,4 @@ SELECT
 
 FROM Movies
 
-JOIN screenactors on movie_id = screenactors.movie_id; 
-
-
-
-
+JOIN screenactors on movie_id = screenactors.movie_id
