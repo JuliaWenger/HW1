@@ -141,7 +141,7 @@ INSERT into movies (
     title, 
     year_released, 
     rating, 
-    studio_id
+    studio_name
 )
 VALUES 
 ("Batman Begins", "2005", "PG_13", "Warner Bros"), 
@@ -185,11 +185,12 @@ VALUES
 -- TODO!
 
 SELECT
-   title,
-   year_released, 
-   rating,
-   studio_id
-FROM movies;
+   movie.title,
+   movie.year_released, 
+   movie.rating,
+   movie.studio_id
+FROM movies
+INNER JOIN studios ON studios.id = movies.studio_id;
 
 
 -- Prints a header for the cast output
@@ -208,6 +209,6 @@ SELECT
 
 FROM Movies
 
-JOIN screenactors on movie_id = screenactors.movie_id 
+inner JOIN screenactors on movie_id = screenactors.movie_id 
 
-
+ORDER By title; 
